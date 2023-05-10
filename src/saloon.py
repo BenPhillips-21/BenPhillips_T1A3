@@ -2,52 +2,57 @@ import random
 import sys
 
 print("You're sitting at a blackjack table in an old Saloon.")
-print("Across from you is the old dealer")
-print("To your left is a very muscular man")
-print("To your right is a young man with a big smile on his face")
-choice = input("Do you want to play blackjack? (blackjack), talk to the muscular man? (muscles) or to the funny guy? (funny)\n")
+print("Across from you is the old dealer and a bad guy, twirling his moustache...")
+print("To your left is a very muscular man...")
+print("To your right is a young drunk big smile on his face...")
+choice = input("Do you want to play blackjack? (blackjack), talk to the muscular man? (muscles) the drunkard? (drunk) or the bad looking guy? (bad)\n")
 
 if choice == "muscles":
-    def protein_calculator(age, weight, gender, activity, goals):
-        if gender == 'male':
-            bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
-        elif gender == 'female':
-            bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)
+    response = input("You look like you go to the gym, you want me to help you find out how much protein you should be eating in order to reach your goals? (yes/no)")
+    if response == "yes":
+        def protein_calculator(age, weight, gender, activity, goals):
+            if gender == 'male':
+                bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
+            elif gender == 'female':
+                bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)
 
-        if activity == 'sedentary':
-            tdee = bmr * 1.2
-        elif activity == 'lightly active':
-            tdee = bmr * 1.375
-        elif activity == 'moderately active':
-            tdee = bmr * 1.55
-        elif activity == 'very active':
-            tdee = bmr * 1.725
-        else:
-            tdee = bmr * 1.9
+            if activity == 'sedentary':
+                tdee = bmr * 1.2
+            elif activity == 'lightly active':
+                tdee = bmr * 1.375
+            elif activity == 'moderately active':
+                tdee = bmr * 1.55
+            elif activity == 'very active':
+                tdee = bmr * 1.725
+            else:
+                tdee = bmr * 1.9
 
-        if goals == 'gain':
-            protein_calories = tdee * (22/100)
-            protein = protein_calories / 4
-            print(f"You should eat {protein:.2f} grams of protein a day to put on mass")
-        elif goals == 'lose':
-            protein_calories = tdee * (20/100)
-            protein = protein_calories / 4
-            print(f"You should eat {protein:.2f} grams of protein a day to lose weight")
-        else: 
-            protein_calories = tdee * (18/100)
-            protein = protein_calories / 4
-            print(f"You should eat {protein:.2f} grams of protein a day to maintain your current mass")
+            if goals == 'gain':
+                protein_calories = tdee * (22/100)
+                protein = protein_calories / 4
+                print(f"You should eat {protein:.2f} grams of protein a day to put on mass")
+            elif goals == 'lose':
+                protein_calories = tdee * (20/100)
+                protein = protein_calories / 4
+                print(f"You should eat {protein:.2f} grams of protein a day to lose weight")
+            else: 
+                protein_calories = tdee * (18/100)
+                protein = protein_calories / 4
+                print(f"You should eat {protein:.2f} grams of protein a day to maintain your current mass")
 
-        return protein
+            return protein
 
-    age = int(input("Enter your age: "))
-    height = float(input("Enter your height: (cm) "))
-    weight = float(input("Enter your weight: (kg) "))
-    gender = input("Enter your gender (male/female): ")
-    activity = input("Enter your level of activity (sedentary/lightly active/moderately active/very active/extremely active): ")
-    goals = input("Enter your goals (gain/maintain/lose):  ")
+        age = int(input("How old are you, in years that is?: "))
+        height = float(input("How tall are you in centimetres? "))
+        weight = float(input("How much do you weigh in kilograms? "))
+        gender = input("My eye sight ain't too good, you a male or female? ")
+        activity = input("How active are you? (sedentary/lightly active/moderately active/very active/extremely active): ")
+        goals = input("And are you trying to gain, maintain, or lose weight? (gain, maintain, lose)  ")
 
-    protein_requirement = protein_calculator(age, weight, gender, activity, goals)
+        protein_requirement = protein_calculator(age, weight, gender, activity, goals)
+    else:
+        sys.exit
+        # RETURN TO SALOON
 
 elif choice == "blackjack": 
     def calculate_hand(user_hand):
