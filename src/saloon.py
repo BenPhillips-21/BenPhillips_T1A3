@@ -1,5 +1,7 @@
 import random
 import sys
+import requests
+import json
 
 print("You're sitting at a blackjack table in an old Saloon.")
 print("Across from you is the old dealer and a bad guy, twirling his moustache...")
@@ -143,8 +145,24 @@ elif choice == "blackjack":
     elif user_input == 'stand':
         stand()
 
-# elif choice == "funny":
-#     # guy that tells a random joke
+elif choice == "funny":
+    reply = requests.get('https://official-joke-api.appspot.com/jokes/ten')
+
+    jokes = json.loads(reply.content)
+
+    joke = random.choice(jokes)
+    opening_line = [
+    'Hey... hey buddy I got a joke for ya...',
+    'Hey pal listen to this one...',
+    'Ay man I got a funny one...',
+    'BUUUURP sorry about that, wanna hear a joke?',
+    'BUUUUURP'
+    ]
+    random_line = random.choice(opening_line)
+    print(random_line)
+    print(joke['setup'])
+    input("You wanna hear the punchline? (Press enter)")
+    print(joke['punchline'])
 
 # elif choice == "shoot":
 #     # game in which you have to guess a number or guy shoots you
