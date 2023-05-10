@@ -25,20 +25,44 @@ def play_again():
     else:
         play_blackjack()
 
-def hit(user_input):
-    user_input = input("Shall ye hit or shall ye stand? (hit/stand) ")
-
-    if user_input == 'hit':
-        user_hand += random.sample(deck, 1)
-        result_of_user_hand = calculate_hand(user_hand)  
-        print(result_of_user_hand)
-        if result_of_user_hand == 21:
-            print("Blackjack! Ye win!")
-            play_again()
-        elif result_of_user_hand > 21:
-            print("Yer busted!")
-        else:
+def hit():
+    global user_hand
+    user_hand += random.sample(deck, 1)
+    print(user_hand)
+    result_of_user_hand = calculate_hand(user_hand)  
+    print(result_of_user_hand)
+    if result_of_user_hand == 21:
+        print("Blackjack! Ye win!")
+        play_again()
+    elif result_of_user_hand > 21:
+        print("Yer busted!")
+    else:
+        user_input = input("Shall ye hit again or shall ye stand? (hit/stand) ")
+        if user_input == 'hit':
             hit()
+        elif user_input == 'stand':
+            stand()
+               
+
+def stand():
+    global dealer_hand
+    global user_hand
+    global result_of_dealer_hand
+    while result_of_dealer_hand <= 21:
+        dealer_hand += random.sample(deck, 1)
+        result_of_dealer_hand = calculate_hand(dealer_hand)  
+        print(f'The result of my hand is: {result_of_dealer_hand}')
+        if result_of_dealer_hand == 21:
+            print("I win!")
+            play_again()
+        elif result_of_dealer_hand == result_of_user_hand or result_of_dealer_hand == 22:
+            print("Push")
+            play_again()
+        elif result_of_dealer_hand > 22:
+            print("Dangit I'm busted!")
+            play_again()
+        
+        
 
 # deck of cards / player dealer hand
 
@@ -63,6 +87,8 @@ if result_of_user_hand == 21:
     play_again()
 
 
+result_of_dealer_hand = calculate_hand(dealer_hand)
+
 print(f"Dealer's hand: {dealer_hand[0]}")
 
 user_input = input("Shall ye hit or shall ye stand? (hit/stand) ")
@@ -72,9 +98,3 @@ if user_input == 'hit':
 elif user_input == 'stand':
     stand()
 
-
-# calculate total of each hand
-
-# check for winner 
-
-# game loop
