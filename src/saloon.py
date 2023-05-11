@@ -15,6 +15,12 @@ while True:
     if choice == "muscles":
         response = input("You look like you go to the gym, you want me to help you find out how much protein you should be eating in order to reach your goals? (yes/no)")
         if response == "yes":
+
+            def play_again():
+                    again = input("Do ye wish to play again? (y/n): ")
+                    while again != "y":
+                        sys.exit()
+
             def protein_calculator(age, weight, gender, activity, goals):
                 if gender == 'male':
                     bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
@@ -36,14 +42,17 @@ while True:
                     protein_calories = tdee * (22/100)
                     protein = protein_calories / 4
                     print(f"You should eat {protein:.2f} grams of protein a day to put on mass")
+                    play_again()
                 elif goals == 'lose':
                     protein_calories = tdee * (20/100)
                     protein = protein_calories / 4
                     print(f"You should eat {protein:.2f} grams of protein a day to lose weight")
+                    play_again()
                 else: 
                     protein_calories = tdee * (18/100)
                     protein = protein_calories / 4
                     print(f"You should eat {protein:.2f} grams of protein a day to maintain your current mass")
+                    play_again()
 
                 return protein
 
@@ -74,10 +83,24 @@ while True:
                     result += int(item)
             return result
 
+        # def play_again():
+        #     again = input("Do ye wish to play again? (y/n): ")
+        #     while again == "y":
+        #         # sys.exit()
+        #         break
+        #     else:
+        #         sys.exit()
+
         def play_again():
-            again = input("Do ye wish to play again? (y/n): ")
-            while again != "y":
-                sys.exit()
+            while True:
+                again = input("Do ye wish to play again? (y/n): ")
+                if again == "y":
+                    break
+                elif again == "n":
+                    sys.exit()
+                else:
+                    print("Invalid input. Please enter 'y' or 'n'.")
+
 
         def hit():
             global user_hand
@@ -112,7 +135,7 @@ while True:
                     print("I win!")
                     play_again()
                 elif result_of_dealer_hand > result_of_user_hand and result_of_dealer_hand <= 21:
-                    print("I win!")
+                    print("I win! I win!")
                     play_again()
                 elif result_of_dealer_hand == result_of_user_hand or result_of_dealer_hand == 22:
                     print("Push")
@@ -125,36 +148,39 @@ while True:
                 'A', 'A', 'A', 'A', 'J', 'J', 'J', 'J', 'Q', 'Q', 'Q', 'Q', 'K', 'K', 'K', 'K']
         dealer_hand = []
         user_hand = []
+        while True:
+            dealer_hand += random.sample(deck, 2)
+            user_hand += random.sample(deck, 2)
 
-        dealer_hand += random.sample(deck, 2)
-        user_hand += random.sample(deck, 2)
+            print(f'Your hand: {user_hand}')
+            result_of_user_hand = calculate_hand(user_hand)  
+            print(f'({result_of_user_hand})')
+            if result_of_user_hand == 21:
+                print("Blackjack! Ye win!")
+                play_again()
+                break
 
-        print(f'Your hand: {user_hand}')
-        result_of_user_hand = calculate_hand(user_hand)  
-        print(f'({result_of_user_hand})')
-        if result_of_user_hand == 21:
-            print("Blackjack! Ye win!")
-            play_again()
+            result_of_dealer_hand = calculate_hand(dealer_hand)
+            print(f"Dealer's first card: {dealer_hand[0]}")
+            user_input = input("Shall ye hit or shall ye stand? (hit/stand) ")
 
-        result_of_dealer_hand = calculate_hand(dealer_hand)
-        print(f"Dealer's first card: {dealer_hand[0]}")
-        user_input = input("Shall ye hit or shall ye stand? (hit/stand) ")
+            if user_input == 'hit':
+                hit()
+                break
+            elif user_input == 'stand':
+                stand()
+                break
 
-        if user_input == 'hit':
-            hit()
-        elif user_input == 'stand':
-            stand()
-
-
-
-
-
-
-
-
-
-
-    elif choice == "funny":
+    elif choice == "drunk":
+        def play_again():
+            while True:
+                again = input("Do ye wish to play again? (y/n): ")
+                if again == "y":
+                    break
+                elif again == "n":
+                    sys.exit()
+                else:
+                    print("Invalid input. Please enter 'y' or 'n'.")
         reply = requests.get('https://official-joke-api.appspot.com/jokes/ten')
 
         jokes = json.loads(reply.content)
@@ -172,6 +198,7 @@ while True:
         print(joke['setup'])
         input("You wanna hear the punchline? (Press enter)")
         print(joke['punchline'])
+        play_again()
 
     # elif choice == "shoot":
     #     # game in which you have to guess a number or guy shoots you
