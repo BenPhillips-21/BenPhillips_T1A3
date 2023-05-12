@@ -16,11 +16,6 @@ while True:
         response = input("You look like you go to the gym, you want me to help you find out how much protein you should be eating in order to reach your goals? (yes/no)")
         if response == "yes":
 
-            def play_again():
-                    again = input("Do ye wish to play again? (y/n): ")
-                    while again != "y":
-                        sys.exit()
-
             def protein_calculator(age, weight, gender, activity, goals):
                 if gender == 'male':
                     bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
@@ -65,7 +60,7 @@ while True:
 
             protein_requirement = protein_calculator(age, weight, gender, activity, goals)
         else:
-            sys.exit
+            sys.exit()
             # RETURN TO SALOON
 
     elif choice == "blackjack": 
@@ -83,13 +78,6 @@ while True:
                     result += int(item)
             return result
 
-        # def play_again():
-        #     again = input("Do ye wish to play again? (y/n): ")
-        #     while again == "y":
-        #         # sys.exit()
-        #         break
-        #     else:
-        #         sys.exit()
 
         def play_again():
             while True:
@@ -104,9 +92,10 @@ while True:
 
         def hit():
             global user_hand
+            global result_of_user_hand
             user_hand += random.sample(deck, 1)
             print(user_hand)
-            result_of_user_hand = calculate_hand(user_hand)  
+            result_of_user_hand = calculate_hand(user_hand) 
             print(result_of_user_hand)
             if result_of_user_hand == 21:
                 print("Blackjack! Ye win!")
@@ -125,27 +114,45 @@ while True:
             global dealer_hand
             global user_hand
             global result_of_dealer_hand
-            while result_of_dealer_hand <= 21:
-                print(f'My current hand is {dealer_hand}')
-                dealer_hand += random.sample(deck, 1)
-                result_of_dealer_hand = calculate_hand(dealer_hand) 
-                print(f'My new hand is {dealer_hand}') 
-                print(f'The sum of my hand is: {result_of_dealer_hand}')
-                if result_of_dealer_hand == 21:
-                    print("I win!")
-                    play_again()
-                elif result_of_dealer_hand > result_of_user_hand and result_of_dealer_hand <= 21:
-                    print("I win! I win!")
-                    play_again()
-                elif result_of_dealer_hand == result_of_user_hand or result_of_dealer_hand == 22:
-                    print("Push")
-                    play_again()
-                elif result_of_dealer_hand > 22:
-                    print("Dangit I'm busted!")
-                    play_again()
+            global result_of_user_hand
+            print(f'My opening hand is {dealer_hand}')
+            result_of_dealer_hand = calculate_hand(dealer_hand)
+            print(result_of_dealer_hand)
+            if result_of_dealer_hand == 21:
+                print("I win!")
+                play_again()
+            elif result_of_dealer_hand > result_of_user_hand and result_of_dealer_hand <= 21:
+                print("I win! I win!")
+                play_again()
+            elif result_of_dealer_hand == result_of_user_hand or result_of_dealer_hand == 22:
+                print("Push")
+                play_again()
+            elif result_of_dealer_hand > 22:
+                print("Dangit I'm busted!")
+                play_again()
+            else:
+                while result_of_dealer_hand < 21:
+                    dealer_hand += random.sample(deck, 1)
+                    result_of_dealer_hand = calculate_hand(dealer_hand) 
+                    print(f'My new hand is {dealer_hand}') 
+                    print(f'The sum of my new hand is: {result_of_dealer_hand}')
+                    if result_of_dealer_hand == 21:
+                        print("I win!")
+                        play_again()
+                    elif result_of_dealer_hand > result_of_user_hand and result_of_dealer_hand <= 21:
+                        print("I win! I win!")
+                        play_again()
+                        break
+                    elif result_of_dealer_hand == result_of_user_hand or result_of_dealer_hand == 22:
+                        print("Push")
+                        play_again()
+                    elif result_of_dealer_hand > 22:
+                        print("Dangit I'm busted!")
+                        play_again()
                 
         deck = [2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,
-                'A', 'A', 'A', 'A', 'J', 'J', 'J', 'J', 'Q', 'Q', 'Q', 'Q', 'K', 'K', 'K', 'K']
+        'A', 'A', 'A', 'A', 'J', 'J', 'J', 'J', 'Q', 'Q', 'Q', 'Q', 'K', 'K', 'K', 'K']
+
         dealer_hand = []
         user_hand = []
         while True:
@@ -172,15 +179,6 @@ while True:
                 break
 
     elif choice == "drunk":
-        def play_again():
-            while True:
-                again = input("Do ye wish to play again? (y/n): ")
-                if again == "y":
-                    break
-                elif again == "n":
-                    sys.exit()
-                else:
-                    print("Invalid input. Please enter 'y' or 'n'.")
         reply = requests.get('https://official-joke-api.appspot.com/jokes/ten')
 
         jokes = json.loads(reply.content)
@@ -200,9 +198,29 @@ while True:
         print(joke['punchline'])
         play_again()
 
-    # elif choice == "shoot":
-    #     # game in which you have to guess a number or guy shoots you
+    elif choice == "bad":
+
+        print("You've been lookin' at me funny this whole game. I'm thinking of a number between 1 and 20.")
+        print("You guess which number I'm thinkin' of within 4 tries, you live, otherwise...")
+        print("You die.")
+        random_number = random.randint(1, 15)
+        for i in range(4):
+                
+            guess = int(input("What's your guess? "))
+            if guess == random_number:
+                print("You got it! You a lucky son of a gun, you know that?")
+                play_again()
+            elif guess > random_number:
+                print("Wrong... lower...")
+            elif guess < random_number:
+                print("Wrong... higher...")
+            
+        else:
+            print("Adios, amigo. BANG!")
+            print("You died.")
+            sys.exit()
+        
 
     # else:
 
-print("Thanks for playing!")
+    # print("Thanks for playing!")
