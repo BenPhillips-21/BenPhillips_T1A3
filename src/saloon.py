@@ -3,6 +3,16 @@ import sys
 import requests
 import json
 
+def play_again():
+        while True:
+            again = input("Do ye wish to play again? (y/n): ")
+            if again == "y":
+                break
+            elif again == "n":
+                sys.exit()
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
+
 # from functions import hit, stand, play_again, calculate_hand
 
 print("You're sitting at a blackjack table in an old Saloon.")
@@ -61,7 +71,6 @@ while True:
             protein_requirement = protein_calculator(age, weight, gender, activity, goals)
         else:
             sys.exit()
-            # RETURN TO SALOON
 
     elif choice == "blackjack": 
         def calculate_hand(user_hand):
@@ -201,15 +210,16 @@ while True:
     elif choice == "bad":
 
         print("You've been lookin' at me funny this whole game. I'm thinking of a number between 1 and 20.")
-        print("You guess which number I'm thinkin' of within 4 tries, you live, otherwise...")
+        print("You guess which number I'm thinkin' of within 3 tries, you live, otherwise...")
         print("You die.")
         random_number = random.randint(1, 15)
-        for i in range(4):
+        for i in range(3):
                 
             guess = int(input("What's your guess? "))
             if guess == random_number:
                 print("You got it! You a lucky son of a gun, you know that?")
                 play_again()
+                break
             elif guess > random_number:
                 print("Wrong... lower...")
             elif guess < random_number:
@@ -220,7 +230,3 @@ while True:
             print("You died.")
             sys.exit()
         
-
-    # else:
-
-    # print("Thanks for playing!")
