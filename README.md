@@ -24,6 +24,67 @@ The 'shoot' game involves the user 'talking' to a bad guy who has a problem with
 
 If the player guesses correctly, the bad guy calls the user a "lucky son of a gun" and then the play again function is called. If the player guesses incorrectly, the game provides feedback to help them guess better in the next round. If the player exhausts all three guesses it enters the else statement and the bad guy shoots the user and it the game ends using sys.exit. The code uses a try/except block to handle the possibility that the player enters a non-integer guess. The try block attempts to convert the input to an integer, and if it fails (because the input is not a valid integer), the except block catches the resulting ValueError exception and prompts the player to enter a valid integer.
 
+__Implementation Plan__
+
+**Blackjack Plan**
+
+Due date: Wednesday May 10th
+
+1. Define and implement the calculate_hand function to calculate the value of a given hand.
+2. Define and implement the play_again function to ask the user if they want to play again and exit the game if they don't.
+3. Define and implement the hit function to add a card to the user's hand, calculate the value of the hand, and determine if the user has won, lost, or needs to choose hit or stand again.
+4. Define and implement the stand function to add cards to the dealer's hand until their hand is greater than or equal to 17, calculate the value of the hand, and determine if the dealer has won, lost, or pushed.
+5. Define and create the deck of cards to be used in the game.
+6. Initialize the dealer and user hands by selecting two cards from the deck.
+7. Print the user's hand and ask the user if they want to hit or stand.
+8. Call either the hit or stand function depending on the user's input.
+9. Use conditionals to determine the winner or if the game has pushed.
+10. Ask the user if they want to play again, and repeat the game if they do.
+
+
+
+**Protein Calculator Plan**
+
+Due date: Thursday May 11th
+
+1. Define the protein_calculator() function that takes in age, weight, height, gender, activity, and goals as input parameters.
+2. Within the protein_calculator() function, calculate the Basal Metabolic Rate (BMR) based on the gender using the appropriate formula.
+3. Calculate the Total Daily Energy Expenditure (TDEE) based on the activity level using the appropriate formula.
+4. Calculate the protein requirement based on the weight goals provided using the appropriate formula.
+5. Return the protein requirement calculated in the function.
+6. Use a loop and try-except blocks to get input from the user for age, height, weight, gender, activity, and weight goals.
+7. Print error messages for invalid input and ask the user to enter valid input until they provide valid input.
+8. Call the protein_calculator() function with the user's input and store the returned value in the protein_requirement variable.
+
+**Number Guessing Game Plan**
+
+Due date: Friday May 12th
+
+1. Define the game's rules and win/lose conditions.
+2. Generate a random number between 1 and 20.
+3. Allow the player to input a guess.
+4. Validate the input to ensure that it is an integer.
+5. Compare the player's guess with the random number generated.
+6. If the guess is correct, congratulate the player and offer to play again.
+7. If the guess is incorrect, provide feedback on whether the guess is too high or too low.
+8. Allow the player to guess up to 3 times.
+9. If the player is unable to guess correctly within 3 attempts, inform them that they have lost the game.
+
+**Joke Game Plan**
+
+Due date: Friday May 12th
+
+1. Install the requests module using pip.
+2. Import the necessary modules: requests, json and random.
+3. Use the requests module to get the API response from 'https://official-joke-api.appspot.com/jokes/ten'.
+4. Parse the response content to JSON using the json module.
+5. Choose a random joke from the list of jokes using the random module.
+6. Create a list of opening lines to randomly choose from.
+7. Print a random opening line.
+8. Print the setup of the chosen joke.
+9. Wait for user input to proceed to the punchline.
+10. Print the punchline of the chosen joke.
+
 
 
 
