@@ -91,12 +91,19 @@ In order to run the program, the user must type 'python3 saloon.py' into the ter
 
 **Blackjack How to Play**
 
-Blackjack is a card game where players aim to get a hand with a value of 21 or as close to 21 as possible without going over, while also beating the dealer's hand.  The user is dealt two cards, and can then choose to "hit" (by inputting 'hit' when prompted) and receive additional cards to increase their hand value, or "stand" (by inputting 'stand' when prompted) and keep their current hand. Included below where the user's hand is printed, is also printed the sum of their cards in brackets. The dealer also receives two cards, but only one of them is revealed to the players (at the start). The dealer must hit until their hand value is 17 or higher. Natural win: If a player has an ace and a 10-point card in the first two cards, it is called a natural or blackjack and wins automatically, unless the dealer also has a blackjack. If a player's hand is closer to 21 than the dealer's without going over 21, the player wins. If the dealer's hand is closer to 21 than the player's without going over 21, the dealer wins. If the player's and dealer's hands have the same value, the game is a tie or push. If a player's hand value exceeds 21, the player loses immediately, regardless of the dealer's hand.
+The user can play Blackjack by first entering 'blackjack' in the command line after the prompt at the start of the program. Blackjack is a card game where players aim to get a hand with a value of 21 or as close to 21 as possible without going over, while also beating the dealer's hand.  The user is dealt two cards, and can then choose to "hit" (by inputting 'hit' when prompted) and receive additional cards to increase their hand value, or "stand" (by inputting 'stand' when prompted) and keep their current hand. Included below where the user's hand is printed, is also printed the sum of their cards in brackets. The dealer also receives two cards, but only one of them is revealed to the players (at the start). The dealer must hit until their hand value is 17 or higher. Natural win: If a player has an ace and a 10-point card in the first two cards, it is called a natural or blackjack and wins automatically, unless the dealer also has a blackjack. If a player's hand is closer to 21 than the dealer's without going over 21, the player wins. If the dealer's hand is closer to 21 than the player's without going over 21, the dealer wins. If the player's and dealer's hands have the same value, the game is a tie or push. If a player's hand value exceeds 21, the player loses immediately, regardless of the dealer's hand.
 
 **Protein Calculator How To Use**
 
-In order to use the protein calculator, simply enter the necessary information when prompted. The calculator will then output the results.  The code assumes that you have knowledge of your weight, height and fitness goals before using it. You may need to research and gather this information before using the calculator. 
+The user can use the Protein Calculator by first entering 'muscles' in the command line after the prompt at the start of the program. In order to use the protein calculator, simply enter the necessary information when prompted. The calculator will then output the results.  The code assumes that you have knowledge of your weight, height and fitness goals before using it. You may need to research and gather this information before using the calculator. 
 
+**Joke Game How To Use**
+
+In order to run the joke game, all the user must first input 'drunk' in the command line at the prompt at the start of the program. The game will then tell the setup of the joke and in order to hear the punchline the user must hit enter on their keyboard. 
+
+**Number Guess Game How To Use**
+
+The user can play the number guessing game by first entering 'bad' in the command line after the prompt at the start of the program. The user must then enter a number in the command line until they either run out of guesses or they win.
 
 
 
