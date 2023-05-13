@@ -154,7 +154,7 @@ while True:
             user_hand += random.sample(deck, 1)
             print(user_hand)
             result_of_user_hand = calculate_hand(user_hand) 
-            print(result_of_user_hand)
+            print(f'({result_of_user_hand})')
             if result_of_user_hand == 21:
                 print("Blackjack! Ye win!")
                 play_again()
@@ -182,7 +182,7 @@ while True:
             global result_of_user_hand
             print(f'My opening hand is {dealer_hand}')
             result_of_dealer_hand = calculate_hand(dealer_hand)
-            print(result_of_dealer_hand)
+            print(f'({result_of_dealer_hand})')
             if result_of_dealer_hand == 21:
                 print("Blackjack! I win!")
                 play_again()
@@ -203,7 +203,7 @@ while True:
                     dealer_hand += random.sample(deck, 1)
                     result_of_dealer_hand = calculate_hand(dealer_hand) 
                     print(f'My new hand is {dealer_hand}') 
-                    print(f'The sum of my new hand is: {result_of_dealer_hand}')
+                    print(f'({result_of_dealer_hand})')
                     if result_of_dealer_hand == 21:
                         print("Blackjack! I win!")
                         play_again()
