@@ -189,6 +189,9 @@ while True:
             elif result_of_dealer_hand > result_of_user_hand and result_of_dealer_hand <= 21:
                 print("I win! I win!")
                 play_again()
+            elif result_of_dealer_hand >= 17 and result_of_user_hand > result_of_dealer_hand:
+                print("Dangit... you win")
+                play_again()
             elif result_of_dealer_hand == result_of_user_hand or result_of_dealer_hand == 22:
                 print("Push")
                 play_again()
@@ -196,7 +199,7 @@ while True:
                 print("Dangit I'm busted!")
                 play_again()
             else:
-                while result_of_dealer_hand < 21:
+                while result_of_dealer_hand <= 17:
                     dealer_hand += random.sample(deck, 1)
                     result_of_dealer_hand = calculate_hand(dealer_hand) 
                     print(f'My new hand is {dealer_hand}') 
@@ -210,6 +213,9 @@ while True:
                         break
                     elif result_of_dealer_hand == result_of_user_hand or result_of_dealer_hand == 22:
                         print("Push")
+                        play_again()
+                    elif result_of_dealer_hand >= 17 and result_of_user_hand > result_of_dealer_hand:
+                        print("Dangit... you win")
                         play_again()
                     elif result_of_dealer_hand > 22:
                         print("Dangit I'm busted!")
