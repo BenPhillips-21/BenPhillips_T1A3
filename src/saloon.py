@@ -76,23 +76,29 @@ while True:
             while True:
                 try:
                     age = int(input("How old are you? "))
+                    if not (0 <= age <= 100):
+                        raise ValueError("Age must be between 0 and 100")
                     break
                 except ValueError:
-                    print("Please enter a valid integer for your age.")
+                    print("Please enter a valid integer for your age (0-100)")
                     
             while True:
                 try:
                     height = float(input("How tall are you in centimetres? "))
+                    if not (0 <= height <= 250):
+                        raise ValueError("Please enter a realistic height. (0-250)")
                     break
-                except ValueError:
-                    print("Please enter a valid float for your height in centimetres.")
-                    
+                except ValueError as e:
+                    print(e)
+
             while True:
                 try:
                     weight = float(input("How much do you weigh in kilograms? "))
+                    if not (0 <= weight <= 500):
+                        raise ValueError("Please enter a realistic weight. (0-500)")
                     break
-                except ValueError:
-                    print("Please enter a valid float for your weight in kilograms.")
+                except ValueError as e:
+                    print(e)
                     
             while True:
                 try:
@@ -155,8 +161,14 @@ while True:
                 print("Yer busted!")
                 play_again()
             else:
-                
-                user_input = input("Shall ye hit again or shall ye stand? (hit/stand) ")
+                while True:
+                    try:
+                        user_input = input("Shall ye hit again or shall ye stand? (hit/stand) ")
+                        if user_input.lower() not in ['hit', 'stand']:
+                            raise ValueError("Input must be either 'hit' or 'stand'")
+                        break
+                    except ValueError as e:
+                        print(e)
                 if user_input == 'hit':
                     hit()
                 elif user_input == 'stand':
