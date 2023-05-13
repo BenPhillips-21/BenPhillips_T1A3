@@ -85,6 +85,18 @@ Due date: Friday May 12th
 9. Wait for user input to proceed to the punchline.
 10. Print the punchline of the chosen joke.
 
+**Help Documentation**
+
+In order to run the program, the user must type 'python3 saloon.py' into the terminal. The set up of the game will then be presented to the user detailing that they're in an old saloon in the Wild West. The user is given four options of things they can do which can be accessed by typing in the terminal 'blackjack', 'muscles', 'drunk' or 'bad.
+
+**Blackjack How to Play**
+
+Blackjack is a card game where players aim to get a hand with a value of 21 or as close to 21 as possible without going over, while also beating the dealer's hand.  The user is dealt two cards, and can then choose to "hit" (by inputting 'hit' when prompted) and receive additional cards to increase their hand value, or "stand" (by inputting 'stand' when prompted) and keep their current hand. Included below where the user's hand is printed, is also printed the sum of their cards in brackets. The dealer also receives two cards, but only one of them is revealed to the players (at the start). The dealer must hit until their hand value is 17 or higher. Natural win: If a player has an ace and a 10-point card in the first two cards, it is called a natural or blackjack and wins automatically, unless the dealer also has a blackjack. If a player's hand is closer to 21 than the dealer's without going over 21, the player wins. If the dealer's hand is closer to 21 than the player's without going over 21, the dealer wins. If the player's and dealer's hands have the same value, the game is a tie or push. If a player's hand value exceeds 21, the player loses immediately, regardless of the dealer's hand.
+
+**Protein Calculator How To Use**
+
+In order to use the protein calculator, simply enter the necessary information when prompted. The calculator will then output the results.  The code assumes that you have knowledge of your weight, height and fitness goals before using it. You may need to research and gather this information before using the calculator. 
+
 
 
 
