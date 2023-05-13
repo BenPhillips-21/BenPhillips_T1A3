@@ -184,7 +184,7 @@ while True:
             result_of_dealer_hand = calculate_hand(dealer_hand)
             print(result_of_dealer_hand)
             if result_of_dealer_hand == 21:
-                print("I win!")
+                print("Blackjack! I win!")
                 play_again()
             elif result_of_dealer_hand > result_of_user_hand and result_of_dealer_hand <= 21:
                 print("I win! I win!")
@@ -202,7 +202,7 @@ while True:
                     print(f'My new hand is {dealer_hand}') 
                     print(f'The sum of my new hand is: {result_of_dealer_hand}')
                     if result_of_dealer_hand == 21:
-                        print("I win!")
+                        print("Blackjack! I win!")
                         play_again()
                     elif result_of_dealer_hand > result_of_user_hand and result_of_dealer_hand <= 21:
                         print("I win! I win!")
