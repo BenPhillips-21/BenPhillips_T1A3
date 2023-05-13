@@ -2,7 +2,7 @@ import random
 import sys
 import requests
 import json
-
+# playagain function which can be used in all games
 def play_again():
         while True:
             again = input("Do ye wish to play again? (y/n): ")
@@ -12,13 +12,13 @@ def play_again():
                 sys.exit()
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
-
+# the game set up
 print("The year is 1867, you're on the American Frontier sitting at a blackjack table in an old Saloon.")
 print("Across from you is the old dealer in a worn-out suit and a bad guy, who stares you down with his hand on his gun...")
 print("To your left is a silent, muscular man and to your right is a pathetic drunk babbling on...")
 while True:
     while True:
-        try:
+        try: 
             choice = input("Do you want to play blackjack? (blackjack), talk to the muscular man? (muscles), the drunkard? (drunk), or the bad guy? (bad)\n")
             if choice.lower() not in ['blackjack', 'muscles', 'drunk', 'bad']:
                 raise ValueError("Input must be one of the strings (blackjack, muscles, drunk, bad)")
@@ -37,8 +37,8 @@ while True:
             except ValueError as e:
                 print(e)
         if response == "yes":
-
-            def protein_calculator(age, weight, gender, activity, goals):
+# game in which a muscular man tells you how much protein you should eat depending on your age, weight, height etc
+            def protein_calculator(age, weight, height, gender, activity, goals):
                 if gender == 'male':
                     bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
                 elif gender == 'female':
@@ -60,6 +60,7 @@ while True:
                     protein = protein_calories / 4
                     print(f"You should eat {protein:.2f} grams of protein a day to put on mass")
                     play_again()
+                    # yes, you actually should eat more protein when losing weight than when mantaining weight
                 elif goals == 'lose':
                     protein_calories = tdee * (20/100)
                     protein = protein_calories / 4
@@ -128,10 +129,10 @@ while True:
                     print(e)
 
 
-            protein_requirement = protein_calculator(age, weight, gender, activity, goals)
+            protein_requirement = protein_calculator(age, weight, height, gender, activity, goals)
         else:
             play_again()
-
+# blackjack game
     elif choice == "blackjack": 
         def calculate_hand(user_hand):
             result = 0
@@ -172,7 +173,7 @@ while True:
                 if user_input == 'hit':
                     hit()
                 elif user_input == 'stand':
-                    stand()       
+                    stand()    
 
         def stand():
             global dealer_hand
@@ -249,7 +250,7 @@ while True:
             elif user_input == 'stand':
                 stand()
                 break
-
+# game in which a drunk man tells you a random joke
     elif choice == "drunk":
         reply = requests.get('https://official-joke-api.appspot.com/jokes/ten')
 
@@ -269,7 +270,7 @@ while True:
         input("You wanna hear the punchline? (Press enter)")
         print(joke['punchline'])
         play_again()
-
+# game in which a 'bad man' gives the user 3 tries to guess a number, if user can't get it, they 'die' and the system exits
     elif choice == "bad":
 
         print("You've been lookin' at me funny this whole game. I'm thinking of a number between 1 and 20...")
@@ -296,4 +297,4 @@ while True:
             print("Adios, amigo. BANG!")
             print("You died.")
             sys.exit()
-        
+    

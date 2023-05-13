@@ -1,6 +1,7 @@
 import random
 import pytest
 
+# pytest that asserts that the calculate hand function returns the correct values
 def test_calculate_hand():
     assert calculate_hand(['A', 'J']) == 21
     assert calculate_hand(['4', '5', '6']) == 15
@@ -22,6 +23,8 @@ def calculate_hand(user_hand):
                 else:
                     result += int(item)
             return result
+
+# in order to do the protein calculator test, run pytest and input the values below and they will receive the correct results
 
 def test_protein_calculator():
      assert protein_calculator(21, 180, 80, 'male', 'very active', 'gain') == 180.7046175
