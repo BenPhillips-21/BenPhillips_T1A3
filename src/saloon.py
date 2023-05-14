@@ -279,7 +279,7 @@ while True:
 # game in which a 'bad man' gives the user 3 tries to guess a number, if user can't get it, they 'die' and the system exits
     elif choice == "bad":
 
-        print("You've been lookin' at me funny this whole game. I'm thinking of a number between 1 and 20...")
+        print("You've been lookin' at me funny this whole game. I'm thinking of a number between 1 and 15...")
         print("You guess which number I'm thinkin' of within 3 tries, you live, otherwise...")
         print("You die.")
         random_number = random.randint(1, 15)
