@@ -2,7 +2,16 @@
 
 Link to source control repository: https://github.com/HolidayGuy21/BenPhillips_T1A3/tree/main/src
 
+Link to Trello Board https://trello.com/b/K35wxBo9/benphillipst1a3
+
+Link to Presentation (PART 1) https://www.loom.com/share/9d4476d0eeee493bbaa15337c215f4ef
+Link to Presentation (PART 2) https://www.loom.com/share/31bb438b909e4b1fadcb758349b60e2e
+
 My application adheres to 'PEP 8 - Style Guide for Python Code' written by the creator of Python, Guido Van Rossum.
+
+**How To Run The Game**
+
+I have created a simple wrapper for the app to run the game. In order to run the game, first navigate to the terminal and type in './Saloon_Game.sh' and then the program should run. If that doesn't work, type in 'chmod +x Saloon_Game.sh' and then retry and the script will work. 
 
 __Features:__
 
